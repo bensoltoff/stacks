@@ -474,7 +474,7 @@ process_.config <- function(.config, df, name) {
 
 # For racing, we only want to keep the candidates with complete resamples. 
 collate_predictions <- function(x) {
-  res <- tune::collect_predictions(x, summarize = TRUE) %>%
+  res <- tune::collect_predictions(x, summarize = FALSE) %>%
     dplyr::rename_with(make.names, .cols = dplyr::starts_with(".pred"))
     
   if (inherits(x, "tune_race")) {
